@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890945622791",
+    "project_id": "doc-mgmt-95c59",
+    "storage_bucket": "doc-mgmt-95c59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890945622791:android:405ba80f7b4aabfdbeaba2",
+        "android_client_info": {
+          "package_name": "com.example.doctor_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890945622791-evn04mss7r1fdfifejgrp0uqm8b08nqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrz8M8MfhlovwqCXt7L4zq6poBf4n8Y_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890945622791-evn04mss7r1fdfifejgrp0uqm8b08nqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

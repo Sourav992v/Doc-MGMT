@@ -1,0 +1,4 @@
+enum LoginVerificationState{
+  formState,
+  otpState
+}

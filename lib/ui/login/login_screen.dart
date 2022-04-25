@@ -8,6 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+final FirebaseAuth auth = FirebaseAuth.instance;
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -16,7 +18,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var currentState = LoginVerificationState.formState;
   final phoneTextController = TextEditingController();
@@ -100,6 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   textStyle: const TextStyle(color: Colors.green),
                   // optional. Shows only country name and flag
                   showCountryOnly: false,
+                  closeIcon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.green,size: 16.0,),
                   showFlag: false,
                   showDropDownButton: true,
                   // optional. Shows only country name and flag when popup is closed.
@@ -124,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
               showLoading = true;
             });
 
-            await _auth.verifyPhoneNumber(
+            await auth.verifyPhoneNumber(
                 phoneNumber: '$countryCode${phoneTextController.value.text}',
                 verificationCompleted: (phoneAuthCredential) async {
                   setState(() {
@@ -285,7 +287,7 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     try {
       final authCredential =
-          await _auth.signInWithCredential(phoneAuthCredential).then((value) {
+          await auth.signInWithCredential(phoneAuthCredential).then((value) {
         setState(() {
           showLoading = false;
         });

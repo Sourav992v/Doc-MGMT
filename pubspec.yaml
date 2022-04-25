@@ -45,6 +45,8 @@ dependencies:
   built_collection: ^5.1.1
   path_provider: ^2.0.9
   flutter_services_binding: ^0.1.0
+  logging: ^1.0.2
+  image_picker: ^0.8.5
 
 dev_dependencies:
   flutter_test:
@@ -72,10 +74,15 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/RobotoCondensed-Bold.ttf
+        - asset: assets/fonts/RobotoCondensed-Regular.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

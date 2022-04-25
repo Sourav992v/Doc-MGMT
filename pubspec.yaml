@@ -40,6 +40,11 @@ dependencies:
   flutter_bloc: ^8.0.1
   pin_code_fields: ^7.4.0
   country_code_picker: ^2.0.2
+  hydrated_bloc: ^8.1.0
+  chopper: ^4.0.5
+  built_collection: ^5.1.1
+  path_provider: ^2.0.9
+  flutter_services_binding: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +56,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  chopper_generator: ^4.0.5
+  build_runner: ^2.1.10
+  built_value_generator: ^8.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

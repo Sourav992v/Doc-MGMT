@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextField(
 
                 cursorColor: Colors.white,
-                style: TextStyle(color: kColorAccent,fontSize: 16.0, fontWeight: FontWeight.bold),
+                style: const TextStyle(color: kColorAccent,fontSize: 16.0, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.justify,
                 controller: phoneTextController,
                 keyboardType: TextInputType.phone,
@@ -82,10 +82,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: '9988776655',
                     hintStyle:
                         TextStyle(color: Colors.white.withOpacity(0.4)),
-                suffixIcon: const Icon(
-                  Icons.cancel_outlined,
+                suffixIcon: IconButton(
+                  icon:const Icon(Icons.cancel_outlined),
                   color: kColorAccent,
-                  size: 16,
+                  iconSize: 16.0,
+                  onPressed: () => phoneTextController.clear(),
                 ),
                 prefixIcon: CountryCodePicker(
                   onChanged: (value){
@@ -95,8 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
                   initialSelection: 'IN',
-                  favorite: ['+91','IN'],
-                  textStyle: TextStyle(color: Colors.green),
+                  favorite: const ['+91','IN'],
+                  textStyle: const TextStyle(color: Colors.green),
                   // optional. Shows only country name and flag
                   showCountryOnly: false,
                   showFlag: false,
@@ -148,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
           },
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
-            child: showLoading ? Center(child: CircularProgressIndicator(color: Colors.white),):const Text(
+            child: showLoading ? const Center(child: CircularProgressIndicator(color: Colors.white),):const Text(
               'Continue',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -195,12 +196,17 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             ElevatedButton(
               onPressed: () {
-                PhoneAuthCredential phoneAuthCredential =
-                    PhoneAuthProvider.credential(
-                        verificationId: verificationId,
-                        smsCode: otpController.value.text);
 
-                signInWithPhone(phoneAuthCredential);
+                if(_checked) {
+                  PhoneAuthCredential phoneAuthCredential =
+                  PhoneAuthProvider.credential(
+                      verificationId: verificationId,
+                      smsCode: otpController.value.text);
+
+                  signInWithPhone(phoneAuthCredential);
+                }else if(!_checked){
+                  CustomWidgets.buildSnackBar(context, 'Please check Terms and Conditions');
+                }
               },
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
